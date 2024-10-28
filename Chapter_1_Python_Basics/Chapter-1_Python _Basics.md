@@ -1,7 +1,8 @@
 
 
 ### **Chapter 1: Python Basics**
-
+- **Topics**: Data types, variables, operators, conditionals (if, elif, else), and loops (for, while).
+- **Project**: *System Health Checker* – A simple script to simulate CPU, memory, and disk health checks, printing a "healthy" or "alert" status based on threshold values.
 ---
 
 ### **1.1 Data Types**
