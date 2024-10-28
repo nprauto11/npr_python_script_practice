@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chapter-1_Python _Basics.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h3 id="chapter-1-python-basics"><strong>Chapter 1: Python Basics</strong></h3>
+<hr>
+<h3 id="11-data-types"><strong>1.1 Data Types</strong></h3>
+<p>Data types are the kinds of values you can work with in Python.</p>
+<ul>
+<li><strong>Integer</strong> (<code>int</code>): Represents whole numbers without a decimal. Examples include <code>10</code>, <code>-5</code>, and <code>0</code>.</li>
+<li><strong>Float</strong> (<code>float</code>): Represents numbers with a decimal point, like <code>3.14</code> or <code>-0.001</code>.</li>
+<li><strong>String</strong> (<code>str</code>): A sequence of characters, typically text, enclosed in quotes. Examples: <code>&quot;Hello&quot;</code>, <code>'SRE Script'</code>.</li>
+<li><strong>Boolean</strong> (<code>bool</code>): Represents <code>True</code> or <code>False</code> values, used to control logic flow in code.</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre class="hljs"><code><div>age = <span class="hljs-number">30</span>            <span class="hljs-comment"># Integer</span>
+price = <span class="hljs-number">19.99</span>       <span class="hljs-comment"># Float</span>
+name = <span class="hljs-string">"Alice"</span>      <span class="hljs-comment"># String</span>
+is_active = <span class="hljs-literal">True</span>    <span class="hljs-comment"># Boolean</span>
+</div></code></pre>
+<hr>
+<h3 id="12-variables"><strong>1.2 Variables</strong></h3>
+<p>Variables act as containers for storing data values. They are created when you assign a value to a name using the <code>=</code> operator.</p>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Variable names must start with a letter or an underscore, and can contain letters, numbers, and underscores.</li>
+<li>They are case-sensitive (<code>Name</code> and <code>name</code> are different variables).</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<pre class="hljs"><code><div>username = <span class="hljs-string">"SRE_Engineer"</span>
+max_retries = <span class="hljs-number">5</span>
+timeout = <span class="hljs-number">30.5</span>
+</div></code></pre>
+<p>In this example:</p>
+<ul>
+<li><code>username</code> holds a string value.</li>
+<li><code>max_retries</code> holds an integer.</li>
+<li><code>timeout</code> holds a float.</li>
+</ul>
+<hr>
+<h3 id="13-operators"><strong>1.3 Operators</strong></h3>
+<p>Operators let you perform operations on variables and values.</p>
+<h4 id="types-of-operators">Types of Operators:</h4>
+<ol>
+<li>
+<p><strong>Arithmetic Operators</strong>: Used for mathematical calculations.</p>
+<ul>
+<li><code>+</code> (addition), <code>-</code> (subtraction), <code>*</code> (multiplication), <code>/</code> (division), <code>%</code> (modulus), <code>**</code> (exponentiation), <code>//</code> (floor division).</li>
+</ul>
+<pre class="hljs"><code><div>result = <span class="hljs-number">10</span> + <span class="hljs-number">5</span>  <span class="hljs-comment"># Result is 15</span>
+quotient = <span class="hljs-number">10</span> // <span class="hljs-number">3</span>  <span class="hljs-comment"># Result is 3, discarding the remainder</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Comparison Operators</strong>: Compare two values and return <code>True</code> or <code>False</code>.</p>
+<ul>
+<li><code>==</code> (equal), <code>!=</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
+</ul>
+<pre class="hljs"><code><div>is_equal = (<span class="hljs-number">10</span> == <span class="hljs-number">10</span>)  <span class="hljs-comment"># True</span>
+is_greater = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>)  <span class="hljs-comment"># True</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Logical Operators</strong>: Combine multiple conditions.</p>
+<ul>
+<li><code>and</code>: True if both conditions are true.</li>
+<li><code>or</code>: True if at least one condition is true.</li>
+<li><code>not</code>: Inverts the result.</li>
+</ul>
+<pre class="hljs"><code><div>is_within_range = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>) <span class="hljs-keyword">and</span> (<span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>)  <span class="hljs-comment"># True</span>
+</div></code></pre>
+</li>
+</ol>
+<hr>
+<h3 id="14-conditionals-if-statements"><strong>1.4 Conditionals (If Statements)</strong></h3>
+<p>Conditionals allow you to execute specific code blocks based on conditions.</p>
+<p><strong>Syntax</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> condition:
+    <span class="hljs-comment"># Code to execute if condition is true</span>
+<span class="hljs-keyword">elif</span> another_condition:
+    <span class="hljs-comment"># Code to execute if the second condition is true</span>
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-comment"># Code to execute if no conditions above are true</span>
+</div></code></pre>
+<p><strong>Example</strong>:</p>
+<pre class="hljs"><code><div>threshold = <span class="hljs-number">70</span>
+usage = <span class="hljs-number">85</span>
+<span class="hljs-keyword">if</span> usage &gt; threshold:
+    print(<span class="hljs-string">"Alert: High usage!"</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"Usage is within limits."</span>)
+</div></code></pre>
+<p>Here, if <code>usage</code> exceeds <code>threshold</code>, the message &quot;Alert: High usage!&quot; is printed. Otherwise, &quot;Usage is within limits&quot; is printed.</p>
+<hr>
+<h3 id="15-loops"><strong>1.5 Loops</strong></h3>
+<p>Loops allow you to repeat a set of instructions.</p>
+<ol>
+<li>
+<p><strong>For Loop</strong>: Used to iterate over a sequence (like a list, tuple, or range).</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):  <span class="hljs-comment"># Loops 3 times (i = 0, 1, 2)</span>
+    print(<span class="hljs-string">"Iteration"</span>, i)
+</div></code></pre>
+</li>
+<li>
+<p><strong>While Loop</strong>: Repeats as long as a condition is <code>True</code>.</p>
+<pre class="hljs"><code><div>count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> count &lt; <span class="hljs-number">3</span>:
+    print(<span class="hljs-string">"Count:"</span>, count)
+    count += <span class="hljs-number">1</span>  <span class="hljs-comment"># Increments count by 1 each time</span>
+</div></code></pre>
+</li>
+</ol>
+<hr>
+<h3 id="project-explanation-system-health-checker"><strong>Project Explanation: System Health Checker</strong></h3>
+<p><strong>Objective</strong>: Write a script to check system resource usage (CPU, memory, and disk) and print a warning if any resource exceeds a set threshold.</p>
+<ol>
+<li>
+<p><strong>Define thresholds</strong> for each resource.</p>
+<ul>
+<li>For this example, <code>cpu_threshold</code>, <code>memory_threshold</code>, and <code>disk_threshold</code> are set.</li>
+</ul>
+</li>
+<li>
+<p><strong>Check each resource</strong> against its threshold using an <code>if</code> statement.</p>
+<ul>
+<li>If a resource usage (like <code>cpu_usage</code>) is above its threshold (<code>cpu_threshold</code>), a warning message is printed.</li>
+<li>Otherwise, it prints that the usage is normal.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Code Walkthrough</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Define current usage values (simulated)</span>
+cpu_usage = <span class="hljs-number">65</span>
+memory_usage = <span class="hljs-number">70</span>
+disk_usage = <span class="hljs-number">80</span>
+
+<span class="hljs-comment"># Define threshold limits</span>
+cpu_threshold = <span class="hljs-number">75</span>
+memory_threshold = <span class="hljs-number">75</span>
+disk_threshold = <span class="hljs-number">85</span>
+
+<span class="hljs-comment"># Check CPU usage</span>
+<span class="hljs-keyword">if</span> cpu_usage &gt; cpu_threshold:
+    print(<span class="hljs-string">"Warning: High CPU usage!"</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"CPU usage is normal."</span>)
+
+<span class="hljs-comment"># Check memory usage</span>
+<span class="hljs-keyword">if</span> memory_usage &gt; memory_threshold:
+    print(<span class="hljs-string">"Warning: High Memory usage!"</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"Memory usage is normal."</span>)
+
+<span class="hljs-comment"># Check disk usage</span>
+<span class="hljs-keyword">if</span> disk_usage &gt; disk_threshold:
+    print(<span class="hljs-string">"Warning: High Disk usage!"</span>)
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"Disk usage is normal."</span>)
+</div></code></pre>
+<ul>
+<li><strong>Practical Application</strong>: In real-world scenarios, we could replace the simulated values (<code>cpu_usage</code>, <code>memory_usage</code>, etc.) with actual system data from monitoring tools to automate system health checks.</li>
+</ul>
+<hr>
+
+</body>
+</html>
