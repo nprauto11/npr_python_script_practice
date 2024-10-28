@@ -1,3 +1,5 @@
+# data types Example
+
 age = 30            # Integer
 price = 19.99       # Float
 name = "Alice"      # String
