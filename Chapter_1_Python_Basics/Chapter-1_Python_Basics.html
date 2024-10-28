@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Chapter-1_Python _Basics.md</title>
+<title>Chapter-1_Python_Basics.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -379,11 +379,16 @@ code {
 <li><strong>String</strong> (<code>str</code>): A sequence of characters, typically text, enclosed in quotes. Examples: <code>&quot;Hello&quot;</code>, <code>'SRE Script'</code>.</li>
 <li><strong>Boolean</strong> (<code>bool</code>): Represents <code>True</code> or <code>False</code> values, used to control logic flow in code.</li>
 </ul>
-<p><strong>Example</strong>:</p>
+<p><strong>Example</strong> (<code>data_types.py</code>):</p>
 <pre class="hljs"><code><div>age = <span class="hljs-number">30</span>            <span class="hljs-comment"># Integer</span>
 price = <span class="hljs-number">19.99</span>       <span class="hljs-comment"># Float</span>
 name = <span class="hljs-string">"Alice"</span>      <span class="hljs-comment"># String</span>
 is_active = <span class="hljs-literal">True</span>    <span class="hljs-comment"># Boolean</span>
+
+print(<span class="hljs-string">"Age:"</span>, age)
+print(<span class="hljs-string">"Price:"</span>, price)
+print(<span class="hljs-string">"Name:"</span>, name)
+print(<span class="hljs-string">"Is Active:"</span>, is_active)
 </div></code></pre>
 <hr>
 <h3 id="12-variables"><strong>1.2 Variables</strong></h3>
@@ -393,17 +398,15 @@ is_active = <span class="hljs-literal">True</span>    <span class="hljs-comment"
 <li>Variable names must start with a letter or an underscore, and can contain letters, numbers, and underscores.</li>
 <li>They are case-sensitive (<code>Name</code> and <code>name</code> are different variables).</li>
 </ul>
-<p><strong>Example</strong>:</p>
+<p><strong>Example</strong> (<code>variables.py</code>):</p>
 <pre class="hljs"><code><div>username = <span class="hljs-string">"SRE_Engineer"</span>
 max_retries = <span class="hljs-number">5</span>
 timeout = <span class="hljs-number">30.5</span>
+
+print(<span class="hljs-string">"Username:"</span>, username)
+print(<span class="hljs-string">"Max Retries:"</span>, max_retries)
+print(<span class="hljs-string">"Timeout:"</span>, timeout)
 </div></code></pre>
-<p>In this example:</p>
-<ul>
-<li><code>username</code> holds a string value.</li>
-<li><code>max_retries</code> holds an integer.</li>
-<li><code>timeout</code> holds a float.</li>
-</ul>
 <hr>
 <h3 id="13-operators"><strong>1.3 Operators</strong></h3>
 <p>Operators let you perform operations on variables and values.</p>
@@ -414,8 +417,16 @@ timeout = <span class="hljs-number">30.5</span>
 <ul>
 <li><code>+</code> (addition), <code>-</code> (subtraction), <code>*</code> (multiplication), <code>/</code> (division), <code>%</code> (modulus), <code>**</code> (exponentiation), <code>//</code> (floor division).</li>
 </ul>
-<pre class="hljs"><code><div>result = <span class="hljs-number">10</span> + <span class="hljs-number">5</span>  <span class="hljs-comment"># Result is 15</span>
-quotient = <span class="hljs-number">10</span> // <span class="hljs-number">3</span>  <span class="hljs-comment"># Result is 3, discarding the remainder</span>
+<p><strong>Example</strong> (<code>operators.py</code>):</p>
+<pre class="hljs"><code><div>a = <span class="hljs-number">10</span>
+b = <span class="hljs-number">3</span>
+print(<span class="hljs-string">"Addition:"</span>, a + b)
+print(<span class="hljs-string">"Subtraction:"</span>, a - b)
+print(<span class="hljs-string">"Multiplication:"</span>, a * b)
+print(<span class="hljs-string">"Division:"</span>, a / b)
+print(<span class="hljs-string">"Modulus:"</span>, a % b)
+print(<span class="hljs-string">"Exponent:"</span>, a ** b)
+print(<span class="hljs-string">"Floor Division:"</span>, a // b)
 </div></code></pre>
 </li>
 <li>
@@ -423,8 +434,11 @@ quotient = <span class="hljs-number">10</span> // <span class="hljs-number">3</s
 <ul>
 <li><code>==</code> (equal), <code>!=</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
 </ul>
+<p><strong>Example</strong>:</p>
 <pre class="hljs"><code><div>is_equal = (<span class="hljs-number">10</span> == <span class="hljs-number">10</span>)  <span class="hljs-comment"># True</span>
 is_greater = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>)  <span class="hljs-comment"># True</span>
+print(<span class="hljs-string">"Is Equal:"</span>, is_equal)
+print(<span class="hljs-string">"Is Greater:"</span>, is_greater)
 </div></code></pre>
 </li>
 <li>
@@ -434,7 +448,9 @@ is_greater = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">
 <li><code>or</code>: True if at least one condition is true.</li>
 <li><code>not</code>: Inverts the result.</li>
 </ul>
-<pre class="hljs"><code><div>is_within_range = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>) <span class="hljs-keyword">and</span> (<span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>)  <span class="hljs-comment"># True</span>
+<p><strong>Example</strong>:</p>
+<pre class="hljs"><code><div>is_within_range = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>) <span class="hljs-keyword">and</span> (<span class="hljs-number">5</span> &lt; <span class="hljs-number">10</span>)
+print(<span class="hljs-string">"Is within range:"</span>, is_within_range)
 </div></code></pre>
 </li>
 </ol>
@@ -449,53 +465,40 @@ is_greater = (<span class="hljs-number">5</span> &gt; <span class="hljs-number">
 <span class="hljs-keyword">else</span>:
     <span class="hljs-comment"># Code to execute if no conditions above are true</span>
 </div></code></pre>
-<p><strong>Example</strong>:</p>
+<p><strong>Example</strong> (<code>conditionals.py</code>):</p>
 <pre class="hljs"><code><div>threshold = <span class="hljs-number">70</span>
 usage = <span class="hljs-number">85</span>
+
 <span class="hljs-keyword">if</span> usage &gt; threshold:
     print(<span class="hljs-string">"Alert: High usage!"</span>)
 <span class="hljs-keyword">else</span>:
     print(<span class="hljs-string">"Usage is within limits."</span>)
 </div></code></pre>
-<p>Here, if <code>usage</code> exceeds <code>threshold</code>, the message &quot;Alert: High usage!&quot; is printed. Otherwise, &quot;Usage is within limits&quot; is printed.</p>
 <hr>
 <h3 id="15-loops"><strong>1.5 Loops</strong></h3>
 <p>Loops allow you to repeat a set of instructions.</p>
 <ol>
 <li>
-<p><strong>For Loop</strong>: Used to iterate over a sequence (like a list, tuple, or range).</p>
+<p><strong>For Loop</strong>: Used to iterate over a sequence (like a list, tuple, or range).
+<strong>Example</strong> (<code>loops.py</code>):</p>
 <pre class="hljs"><code><div><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):  <span class="hljs-comment"># Loops 3 times (i = 0, 1, 2)</span>
     print(<span class="hljs-string">"Iteration"</span>, i)
 </div></code></pre>
 </li>
 <li>
 <p><strong>While Loop</strong>: Repeats as long as a condition is <code>True</code>.</p>
+<p><strong>Example</strong>:</p>
 <pre class="hljs"><code><div>count = <span class="hljs-number">0</span>
 <span class="hljs-keyword">while</span> count &lt; <span class="hljs-number">3</span>:
     print(<span class="hljs-string">"Count:"</span>, count)
-    count += <span class="hljs-number">1</span>  <span class="hljs-comment"># Increments count by 1 each time</span>
+    count += <span class="hljs-number">1</span>
 </div></code></pre>
 </li>
 </ol>
 <hr>
-<h3 id="project-explanation-system-health-checker"><strong>Project Explanation: System Health Checker</strong></h3>
+<h3 id="project-system-health-checker"><strong>Project: System Health Checker</strong></h3>
 <p><strong>Objective</strong>: Write a script to check system resource usage (CPU, memory, and disk) and print a warning if any resource exceeds a set threshold.</p>
-<ol>
-<li>
-<p><strong>Define thresholds</strong> for each resource.</p>
-<ul>
-<li>For this example, <code>cpu_threshold</code>, <code>memory_threshold</code>, and <code>disk_threshold</code> are set.</li>
-</ul>
-</li>
-<li>
-<p><strong>Check each resource</strong> against its threshold using an <code>if</code> statement.</p>
-<ul>
-<li>If a resource usage (like <code>cpu_usage</code>) is above its threshold (<code>cpu_threshold</code>), a warning message is printed.</li>
-<li>Otherwise, it prints that the usage is normal.</li>
-</ul>
-</li>
-</ol>
-<p><strong>Code Walkthrough</strong>:</p>
+<p><strong>Project Code</strong> (<code>system_health_checker.py</code>):</p>
 <pre class="hljs"><code><div><span class="hljs-comment"># Define current usage values (simulated)</span>
 cpu_usage = <span class="hljs-number">65</span>
 memory_usage = <span class="hljs-number">70</span>
@@ -524,10 +527,13 @@ disk_threshold = <span class="hljs-number">85</span>
 <span class="hljs-keyword">else</span>:
     print(<span class="hljs-string">"Disk usage is normal."</span>)
 </div></code></pre>
+<h3 id="explanation"><strong>Explanation</strong>:</h3>
 <ul>
-<li><strong>Practical Application</strong>: In real-world scenarios, we could replace the simulated values (<code>cpu_usage</code>, <code>memory_usage</code>, etc.) with actual system data from monitoring tools to automate system health checks.</li>
+<li>The script checks three system resources (CPU, memory, and disk).</li>
+<li>It compares each resource’s usage against a predefined threshold.</li>
+<li>If any usage exceeds the threshold, a warning message is displayed. Otherwise, it reports that the usage is normal.</li>
 </ul>
-<hr>
+<p>This project will help reinforce your understanding of <strong>variables, conditionals, and basic output statements</strong>. Let me know if you'd like more insights on modifying or expanding this script!</p>
 
 </body>
 </html>
